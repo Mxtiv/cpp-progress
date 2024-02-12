@@ -17,16 +17,20 @@ struct timex
 void time(int seconds)
 {
     timex czas;
-    cout << "podaj liczbę sekund" << endl;
+    
     cout << "dni: " << seconds / inSeconds::days << endl;
     czas.days = seconds / inSeconds::days;
     seconds = seconds % inSeconds::days;
+
     cout << "godziny: " << seconds / inSeconds::hours << endl;
     czas.hours = seconds / inSeconds::hours;
     seconds = seconds % inSeconds::hours;
+
     cout << "minuty: " << seconds / inSeconds::minutes << endl;
     czas.minutes = seconds / inSeconds::minutes;
     seconds = seconds % 60;
+
+    czas.seconds = seconds;
     cout << "sekundy: " << seconds;
 }
 
