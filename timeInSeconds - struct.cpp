@@ -14,10 +14,8 @@ struct timex
     int hours {};
     int days {};
 };
-void time(int seconds)
+void time(int seconds, timex &czas)
 {
-    timex czas;
-    
     cout << "dni: " << seconds / inSeconds::days << endl;
     czas.days = seconds / inSeconds::days;
     seconds = seconds % inSeconds::days;
@@ -36,9 +34,10 @@ void time(int seconds)
 
 int main()
 {
+    timex czas;
     int seconds;
     cout << "podaj czas w sekundach  ";
     cin >> seconds;
-    time(seconds);
+    time(seconds, czas);
     return 0;
 }
