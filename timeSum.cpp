@@ -27,9 +27,9 @@ void secondsToTime(int seconds, timex &czas) // sekundy na czas
 
     czas.seconds = seconds;
 }
-int timeToSeconds(timex czas) // zwraca czas w sekundach
+int timeToSeconds(timex &czas) // zwraca czas w sekundach
 {
-    int seconds;
+    int seconds {};
     seconds += czas.days * inSeconds::days;
     seconds += czas.hours * inSeconds::hours;
     seconds += czas.minutes * inSeconds::minutes;
@@ -39,9 +39,19 @@ int timeToSeconds(timex czas) // zwraca czas w sekundach
 int main()
 {
 
-    timex time1, time2, sum;
-    int se;
+    timex time1{}, time2{}, sum{};
+    int seconds1{}, seconds2{}, sumInSeconds{};
+    cin>>time1.days>>time1.hours>>time1.minutes>>time1.seconds;
+    cin >> time2.days >> time2.hours >> time2.minutes >> time2.seconds;
+    seconds1 = timeToSeconds(time1);
+    seconds2 = timeToSeconds(time2);
+    sumInSeconds = seconds1 + seconds2;
+    secondsToTime(sumInSeconds, sum);
 
-    return 0;
+    cout << sum.days << endl
+         << sum.hours << endl
+         << sum.minutes << endl
+         << sum.seconds << endl;
 
+        return 0;
 }
