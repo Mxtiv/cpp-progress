@@ -36,7 +36,7 @@ public:
     {
         if (amount < 100)
         {
-            this->balance += amount;
+            this->balance -= amount;
             cout << "transaction suceed\n";
         }
         else
@@ -96,7 +96,41 @@ public:
 };
 
 int main()
-{   
+{
+    Account igorchpolak(1032, 20);
     char selection{};
-    
+    float amount{};
+    do
+    {
+        cout << "\nselect option: \n"
+             << "b - display balance\n"
+             << "d - depsosit money\n"
+             << "w - withdraw money\n"
+             << "p - set new pin\n"
+             << "q - quit\n\n";
+        cin >> selection;
+        switch (selection)
+        {
+        case 'b':
+            cout << "\nBalance: " << igorchpolak.getBalance() << endl;
+            break;
+        case 'd':
+            cout << "\nhow much would u like to deposit?\n";
+            cin >> amount;
+            igorchpolak.depMoney(amount);
+
+            break;
+        case 'w':
+            cout << "\nhow much would u like to withdraw?\n";
+            cin >> amount;
+            igorchpolak.withMoney(amount);
+            break;
+        case 'p':
+            igorchpolak.setPin();
+            break;
+        case 'q':
+            cout << "\nbye bye!\n";
+        }
+
+    } while (selection != 'q');
 }
