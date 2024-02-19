@@ -37,7 +37,7 @@ int *fileToArray(int n)
     plik.open("wyjscie.txt", ios::in);
     int i{};
     int fromFile{};
-    while (n <= i)
+    while (i <= n)
     {
         plik >> fromFile;
         arr[i] = fromFile;
@@ -50,7 +50,6 @@ double averageFromArray(const int arr[], int size){
     double sum{};
     for(int i = 0;i < size; i++){
         sum += *(arr)+i;
-        cout << sum << endl;
     }
     return sum / static_cast<double>(size);
 }
@@ -60,7 +59,6 @@ int main()
     randomNumbersToFile(10);
     int size = fileSize();
     int *arr = fileToArray(size);
-    cout << averageFromArray(arr, 10);
-    delete [] arr;
+    cout << "srednia: "<<averageFromArray(arr, 10);
     return 0;
 }
