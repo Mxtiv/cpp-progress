@@ -133,4 +133,5 @@ int main()
         }
 
     } while (selection != 'q');
+    return 0;
 }
