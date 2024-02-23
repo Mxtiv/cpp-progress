@@ -9,7 +9,6 @@ int main()
     cin >> liter;
     litersToUnits(liter, liters);
     cout << "\ncysterny:  " << liters.tanks
-         << "\nbaseny:    " << liters.pools
          << "\nwanny:     " << liters.baths
          << "\ngalony:    " << liters.gallons
          << "\nlitry:     " << liters.liters;
