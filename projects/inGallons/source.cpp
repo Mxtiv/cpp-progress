@@ -5,7 +5,7 @@ namespace inLiters
     const int liter = 1;
     const int gallon = 5;
     const int bath = 200;
-    const int tank= 10000;
+    const int tank= 1000;
 
 }
 struct unitsOfMeasurement
