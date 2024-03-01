@@ -18,7 +18,7 @@ double averageFromGrades()
     std::cout << "z ilu ocen chcesz obliczyć średnią?\n";
     int amount{};
     std::cin >> amount;
-    grade *oceny = new grade[amount]{};
+    grade *oceny = new grade[amount];
     for (int i = 0; i < amount; i++)
     {
         std::cout << "podaj ocene\n";
