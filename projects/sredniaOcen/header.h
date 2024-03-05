@@ -1,4 +1,5 @@
 #include "source.cpp"
-double averageFromArray(const int arr[], int size);
-void wypisz(int numery[], int rozmiar);
-double averageFromGrades();
+struct Ocena;
+void wypelnij(Ocena *oceny, int rozmiar);
+Ocena *wypelnij2(int rozmiar);
+double srednia(Ocena *oceny, int rozmiar);

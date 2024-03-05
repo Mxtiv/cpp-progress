@@ -1,61 +1,30 @@
 #include <iostream>
-struct grade
+using namespace std;
+struct Ocena
 {
-    int grade{};
-    int weight{};
+    double ocena;
+    double waga;
 };
-double averageFromArray(const int arr[], int size)
+Ocena *wypelnij2(int rozmiar)
 {
-    double sum{};
-    for (int i = 0; i < size; i++)
-    {
-        sum += arr[i];
-    }
-    return sum / static_cast<double>(size);
-}
-double averageFromGrades()
-{
-    std::cout << "z ilu ocen chcesz obliczyć średnią?\n";
-    int amount{};
-    std::cin >> amount;
-    grade *oceny = new grade[amount];
-    for (int i = 0; i < amount; i++)
-    {
-        std::cout << "podaj ocene\n";
-        std::cin >> oceny[i].grade;
-        std::cout << "podaj wage\n";
-        std::cin >> oceny[i].weight;
-    }
-    int size{};
-    for (short i = 0; i < amount; i++)
-    {
-        for (short j = 0; j < oceny[i].weight; j++)
-        {
-            size++;
-        }
-    }
-    int *doSrednia = new int[size];
-    int ocena{};
-    int index{};
-    for (short i = 0; i < amount; i++)
-    {
-        ocena = oceny[i].grade;
-        short j = 0;
-        for (j; j < oceny[i].weight; j++)
-        {
-            doSrednia[i + index] = ocena;
-        }
-        index += j;
-    }
-    delete [] oceny;
-    double average = averageFromArray(doSrednia,size);
-    delete [] doSrednia;
-    return average;
-}
-void wypisz(int numery[], int rozmiar)
-{
+    Ocena *oceny;
+    oceny = new Ocena[rozmiar];
     for (short i = 0; i < rozmiar; i++)
     {
-        std::cout << numery[i] << " ";
+        cout << "podej kolejna ocena";
+        cin >> oceny[i].ocena;
+        cout << "podej kolejna waga";
+        cin >> oceny[i].waga;
     }
+    return oceny;
+}
+double srednia(Ocena *oceny, int rozmiar)
+{
+    double licznik{}, mianownik{};
+    for (short i = 0; i < rozmiar; i++)
+    {
+        licznik += oceny[i].ocena * oceny[i].waga;
+        mianownik += oceny[i].waga;
+    }
+    return licznik / mianownik;
 }
