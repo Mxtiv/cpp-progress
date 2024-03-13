@@ -79,15 +79,18 @@ void withWhiteSpace(){
     cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
 }
 void replace(){
-    std::string str = "C++, Javascript, C#";
-    std::string old_substr = "Javascript";
-    std::string new_substr = "Java";
-    size_t pos = str.find(old_substr);
-    if (pos != std::string::npos)
+    char str[] = "C++, Javascript, C#";
+    const char *old_substr = "Javascript";
+    const char *new_substr = "Java";
+    char *pos = strstr(str, old_substr);
+    if (pos != nullptr)
     {
-        str.replace(pos, old_substr.length(), new_substr);
-        std::cout << str << std::endl; // Output: Hello C++
+        size_t old_len = strlen(old_substr);
+        size_t new_len = strlen(new_substr);
+        memmove(pos + new_len, pos + old_len, strlen(pos + old_len) + 1);
+        memcpy(pos, new_substr, new_len);
     }
+    cout << str << endl;
 }
 int main()
 {
