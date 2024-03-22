@@ -35,13 +35,13 @@ int main()
         // Concatenate the last part of the full name
         std::strcat(result, insertPos);
 
-        std::cout << "Full name with middle name: " << result << std::endl;
+        std::cout << "Full name with middle name: " << result << '\n';
 
         delete[] result;
     }
     else
     {
-        std::cout << "Invalid full name format. Please enter first name and last name separated by space." << std::endl;
+        std::cout << "Invalid full name format. Please enter first name and last name separated by space." << '\n';
     }
     return 0;
 }
