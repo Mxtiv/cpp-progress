@@ -1,8 +1,6 @@
 #include <iostream>
 #include <cstring>
-
-int main()
-{
+char *name(){
     const int maxLength = 100;
     char fullName[maxLength], middleName[maxLength];
 
@@ -34,14 +32,19 @@ int main()
 
         // Concatenate the last part of the full name
         std::strcat(result, insertPos);
-
-        std::cout << "Full name with middle name: " << result << '\n';
-
-        delete[] result;
+        return result;
     }
     else
     {
         std::cout << "Invalid full name format. Please enter first name and last name separated by space." << '\n';
+        return nullptr;
     }
+}
+int main()
+{   
+    char *result = name();
+    if(result!=nullptr)
+        std::cout << "Full name with middle name: " << result << '\n';
+    delete[] result;
     return 0;
 }
