@@ -114,21 +114,55 @@ void secondSpace()
     }
     return;
 }
-int main()
+
+std::string swapFirstAndThirdWord(std::string s = "Bob the bill")
 {
-    // ex 1
-    //  Car samochod = createCar();
-    //  samochod.displayCar(samochod);
-    // ex 2
-    //  std::cout<<mergeStrings()<<'\n';
-    // ex 3
-    // compareStrings();
-    // ex 4
-    // strBelongs();
-    // ex 5
-    // withWhiteSpace();
-    // ex 6
-    // replace();
-    // second space
-    // secondSpace();
+    std::string firstWord = s.substr(0, s.find(" "));
+    std::string secondWord = s.substr(s.find(" ") + 1, s.find(" ", s.find(" ") + 1) - s.find(" ") - 1);
+    std::string thirdWord = s.substr(s.find(" ", s.find(" ") + 1) + 1);
+
+    std::string result = thirdWord + " " + secondWord + " " + firstWord;
+    std::cout << "result: " << result << std::endl;
+    return result;
+}
+
+void letters(std::string str)
+{
+    for (char &c : str)
+    {
+        if (std::isupper(c))
+        {
+            c = std::tolower(c);
+        }
+        else if (std::islower(c))
+        {
+            c = std::toupper(c);
+        }
+    }
+
+    std::cout << str << std::endl;
+    return;
+}
+    int main()
+    {
+        // ex 1
+        //  Car samochod = createCar();
+        //  samochod.displayCar(samochod);
+        // ex 2
+        //  std::cout<<mergeStrings()<<'\n';
+        // ex 3
+        // compareStrings();
+        // ex 4
+        // strBelongs();
+        // ex 5
+        // withWhiteSpace();
+        // ex 6
+        // replace();
+        // second space
+        // secondSpace();
+        // third with first
+        swapFirstAndThirdWord();
+        std::string s;
+        std::cin >> s;
+        letters(s);
 }
