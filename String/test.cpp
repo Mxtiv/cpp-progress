@@ -11,8 +11,8 @@ public:
     void displayCar(Car &samochod)
     {
         std::cout << "marka: " << samochod.brand << '\n'
-             << "model: " << samochod.model << '\n'
-             << "rok produkcji: " << samochod.year << '\n';
+                  << "model: " << samochod.model << '\n'
+                  << "rok produkcji: " << samochod.year << '\n';
     }
 };
 
@@ -99,6 +99,21 @@ void replace()
     }
     std::cout << str << '\n';
 }
+void secondSpace()
+{
+    std::string s;
+    std::cin >> s;
+    int pos = s.find(" ", s.find(" ") + 1);
+    if (pos != std::string::npos)
+    {
+        std::cout << "Second space found at position: " << pos << std::endl;
+    }
+    else
+    {
+        std::cout << "No second space found." << std::endl;
+    }
+    return;
+}
 int main()
 {
     // ex 1
@@ -114,4 +129,6 @@ int main()
     // withWhiteSpace();
     // ex 6
     // replace();
+    // second space
+    // secondSpace();
 }
